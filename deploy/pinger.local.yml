@@ -1,0 +1,22 @@
+version: '3.6'
+services:
+  pinger:
+    container_name: pinger
+    restart: always
+    build: ..
+    networks:
+      - dc-net
+    environment:
+#      DB_NAME: pinger
+
+      #CONFIG SERVER
+      CONFIG_SERVER_URL: http://config_server
+      SERVICE_NAME: pinger
+      NAMESPACE: dev-dc
+      M_TOKEN: ${M_TOKEN}
+      #END CONFIG SERVER
+    ports:
+      - 86:80
+networks:
+  dc-net:
+    external: true
