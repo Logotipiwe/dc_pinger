@@ -73,6 +73,7 @@ github.com/lib/pq v1.1.1/go.mod h1:5WUZQaWbwv1U+lTReE5YruASi9Al49XbQIvNi/34Woo=
 github.com/logotipiwe/dc_go_config_lib v1.0.8 h1:kvpUQ/ZQnbF+VF2kKb3JJmds5TpUv8zXmEKh9ydht+E=
 github.com/logotipiwe/dc_go_config_lib v1.0.8/go.mod h1:LzIt8/ud7iDd0xUgg+J0gCW+7YPKUCc4otyZU8HlhYI=
 github.com/logotipiwe/dc_go_utils v1.0.3/go.mod h1:DWXDE69F5qh2TlyZptm/9qijWDACE93GDz6bOYWqeQg=
+github.com/logotipiwe/dc_go_utils v1.0.6/go.mod h1:DWXDE69F5qh2TlyZptm/9qijWDACE93GDz6bOYWqeQg=
 github.com/mailru/easyjson v0.0.0-20190614124828-94de47d64c63/go.mod h1:C1wdFJiN94OJF2b5HbByQZoLdCWB1Yqtg26g4irojpc=
 github.com/mailru/easyjson v0.0.0-20190626092158-b2ccc519800e/go.mod h1:C1wdFJiN94OJF2b5HbByQZoLdCWB1Yqtg26g4irojpc=
 github.com/mailru/easyjson v0.7.6/go.mod h1:xzfreul335JAWq5oZzymOObrkdz5UnU4kGfJJLY9Nlc=
