@@ -38,24 +38,28 @@ func (n *NotificationsService) HandleUpdates() {
 	for update := range updates {
 		if update.Message != nil {
 			if update.Message.IsCommand() {
-				if strings.HasPrefix(update.Message.Text, "/stop") {
-					n.Interruptor.Interrupt()
-					n.SendMessage(update.Message.Chat.ID, "Бот остановлен")
-				} else if strings.HasPrefix(update.Message.Text, "/start") {
-					n.Interruptor.Resume()
-					n.SendMessage(update.Message.Chat.ID, "Бот запущен")
-				} else if strings.HasPrefix(update.Message.Text, "/help") {
-					n.SendMessage(update.Message.Chat.ID, "Айди чата: "+strconv.FormatInt(update.Message.Chat.ID, 10))
-				} else {
-					if update.SentFrom().ID != getOwnerID() {
-						n.SendMessage(update.Message.Chat.ID, "Командовать мной может только Герман")
+				if update.SentFrom().ID == getOwnerID() {
+					if strings.HasPrefix(update.Message.Text, "/stop") {
+						n.Interruptor.Interrupt()
+						n.SendMessage(update.Message.Chat.ID, "Бот остановлен")
+					} else if strings.HasPrefix(update.Message.Text, "/start") {
+						n.Interruptor.Resume()
+						n.SendMessage(update.Message.Chat.ID, "Бот запущен")
+					} else if strings.HasPrefix(update.Message.Text, "/help") {
+						n.SendMessage(update.Message.Chat.ID, "Айди чата: "+strconv.FormatInt(update.Message.Chat.ID, 10))
 					} else {
 						n.SendMessage(update.Message.Chat.ID, "Не понял")
 					}
+				} else {
+					n.SendMessage(update.Message.Chat.ID, "Командовать мной может только Герман")
 				}
 			} else {
 				if strings.Contains(update.Message.Text, "@LogoPingerBot") {
-					n.SendMessage(update.Message.Chat.ID, "@"+update.Message.From.UserName+" дурак")
+					if update.SentFrom().ID == getOwnerID() {
+						n.SendMessage(update.Message.Chat.ID, "@"+update.Message.From.UserName+" не дурак")
+					} else {
+						n.SendMessage(update.Message.Chat.ID, "@"+update.Message.From.UserName+" дурак")
+					}
 				}
 			}
 		}
